@@ -13,10 +13,15 @@ for (let i = 0; i < n; i++) {
     }
   }
 
-  // delete min value from the array
-  const minValue = myArray.splice(minIndex, 1);
-  // move min value to the front of the array
-  myArray.splice(i, 0, ...minValue);
+  // // delete min value from the array
+  // const minValue = myArray.splice(minIndex, 1);
+  // // move min value to the front of the array
+  // myArray.splice(i, 0, ...minValue);
+
+  // for better performance swap values
+  const minValue = myArray[minIndex];
+  myArray[minIndex] = myArray[i];
+  myArray[i] = minValue;
 }
 
 console.log("Sorted array = ", myArray);
