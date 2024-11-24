@@ -3,11 +3,12 @@
 let myArray = [7, 3, 9, 12, 11];
 console.log("Unsorted array = ", myArray);
 
+const length = myArray.length;
 // outer loop run (n-1) times to sort
-for (let i = 0; i < myArray.length; i++) {
+for (let i = 0; i < length; i++) {
   // to improve performance
   let isSwapped = false;
-  for (let j = 0; j < myArray.length; j++) {
+  for (let j = 0; j < length - i; j++) {
     if (myArray[j] > myArray[j + 1]) {
       // swaps current and next value
       let currentValue = myArray[j];
