@@ -1,0 +1,6 @@
+services:
+  dsa:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dsa

@@ -25,17 +25,3 @@ WORKDIR /app
 
 # Copy the current directory contents into the container
 COPY . .
-
-
-# build the image
-# docker build -t data-structure-and-algorithm .
-# run the image
-# docker run --rm data-structure-and-algorithm
-# run the image without building
-# docker run -it --rm --name data-structure-and-algorithm -v "$(PWD):/app" -w /app data-structure-and-algorithm
-# run a specific file
-# docker run -it --rm --name data-structure-and-algorithm -v "$(PWD):/app" -w /app data-structure-and-algorithm php test.php
-
-# docker run -it --rm --name data-structure-and-algorithm -v "$(PWD):/app" -w /app data-structure-and-algorithm node test.js
-
-# docker run -it --rm --name data-structure-and-algorithm -v "$(PWD):/app" -w /app data-structure-and-algorithm python3 test.py

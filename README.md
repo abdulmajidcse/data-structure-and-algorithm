@@ -18,42 +18,21 @@ You may follow instructions, if you want to run code using docker.
    cd data-structure-and-algorithm
    ```
 
-2. Build the Docker image:
+2. Run this command to build image and container or if you have any changes:
 
    ```sh
-   docker build -t data-structure-and-algorithm .
+   docker-compose up --build
    ```
 
-3. Run the Docker container:
+3. You may run this command when you need to execute your code and then you see a linux based terminal.
 
    ```sh
-   docker run --rm data-structure-and-algorithm
+   docker-compose run --rm dsa
    ```
 
-   You may run this command if you need mount from your local to container when your code will be updated.
-
+4. You may run php, node, and python3 command via this linux based terminal. For example, you have three files called test.py, test.php, and test.js and you want to run these files.
    ```sh
-   docker run -it --rm --name data-structure-and-algorithm -v "$(pwd):/app" -w /app data-structure-and-algorithm
+   python3 test.py
+   php test.php
+   node test.js
    ```
-
-   You may also run this command if you need to run a specific file.
-
-   Only for PHP.
-
-   ```sh
-   docker run -it --rm --name data-structure-and-algorithm -v "$(pwd):/app" -w /app data-structure-and-algorithm php test.php
-   ```
-
-   Only for Python
-
-   ```sh
-   docker run -it --rm --name data-structure-and-algorithm -v "$(pwd):/app" -w /app data-structure-and-algorithm python3 test.py
-   ```
-
-   Only for NodeJS.
-
-   ```sh
-   docker run -it --rm --name data-structure-and-algorithm -v "$(pwd):/app" -w /app data-structure-and-algorithm node test.js
-   ```
-
-   Note: You may run these above comands in your powershell if you get an error in your other terminal (e.g., Git Bash).
