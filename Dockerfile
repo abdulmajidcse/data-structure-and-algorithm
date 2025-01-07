@@ -4,6 +4,8 @@ FROM debian:bullseye-slim
 # Install dependencies and add repositories
 RUN apt-get update && apt-get install -y \
     curl \
+    vim \
+    nano \
     gnupg \
     lsb-release \
     ca-certificates \

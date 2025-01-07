@@ -4,3 +4,5 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: dsa
+    volumes:
+      - .:/app
