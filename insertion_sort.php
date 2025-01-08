@@ -11,18 +11,22 @@ $n = count($myArray);
 for ($i = 1; $i < $n; $i++) {
     // get unsorted index and value
     $insertIndex = $i;
-    $currentValue = array_splice($myArray, $i, 1)[0];
+    $currentValue = $myArray[$i];
 
     // check unsorted value with sorted part values
     for ($j = $i - 1; $j > -1; $j--) {
         if ($myArray[$j] > $currentValue) {
+            // shift up $j index value
+            $myArray[$j + 1] = $myArray[$j];
             // change insert index for swapping
             $insertIndex = $j;
+        } else {
+            break;
         }
     }
 
     // insert unsorted value in right position
-    array_splice($myArray, $insertIndex, 0, [$currentValue]);
+    $myArray[$insertIndex] = $currentValue;
 }
 
 // print sorted values
