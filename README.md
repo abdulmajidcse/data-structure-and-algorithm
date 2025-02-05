@@ -30,9 +30,7 @@ You may follow instructions, if you want to run code using docker.
    docker-compose run --rm dsa
    ```
 
-4. You may run php, node, and python3 command via this linux based terminal. For example, you have three files called test.py, test.php, and test.js and you want to run these files.
+4. You may run a PHP file.
    ```sh
-   python3 test.py
    php test.php
-   node test.js
    ```

@@ -1,26 +1,15 @@
-# Use a base image that supports all three (Debian-based image)
+# Use a base image that supports PHP
 FROM debian:bullseye-slim
 
-# Install dependencies and add repositories
+# Install dependencies and PHP 8.4
 RUN apt-get update && apt-get install -y \
     curl \
-    vim \
-    nano \
     gnupg \
     lsb-release \
     ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install PHP 8.2 from the Ondrej PHP repository
-RUN curl -sSL https://packages.sury.org/php/README.txt | bash - && \
-    apt-get update && apt-get install -y php8.2 php8.2-cli php8.2-fpm php8.2-mbstring
-
-# Install Node.js 22.x from NodeSource
-RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
-    apt-get install -y nodejs
-
-# Install Python 3
-RUN apt-get update && apt-get install -y python3 python3-pip
+    && curl -sSL https://packages.sury.org/php/README.txt | bash - && \
+    apt-get update && apt-get install -y php8.4 php8.4-cli && \
+    rm -rf /var/lib/apt/lists/*
 
 # Set the working directory in the container
 WORKDIR /app
