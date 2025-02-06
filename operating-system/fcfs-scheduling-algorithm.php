@@ -7,43 +7,46 @@ while ($processCount < 1) {
     $processCount = intval(readline("How many process? "));
 }
 
+// time track
+$waitingTime = 0;
+$turnaroundTime = 0;
 // get user input for burst times
 $processHistories = [];
 echo "Enter burst time for $processCount process below.\n";
-for ($i = 0; $i < $processCount; $i++) {
-    $burstTime = floatval(readline("P" . $i + 1 . " = "));
-
-    // calculate waiting time and turnaround time
-    $lastIndex = $i - 1;
-    if (!empty($processHistories[$lastIndex])) {
-        $waitingTime = $processHistories[$lastIndex]['tt'];
-        $turnAroundTime = $processHistories[$lastIndex]['tt'] + $burstTime;
-    } else {
-        $waitingTime = 0;
-        $turnAroundTime = $burstTime;
-    }
+for ($i = 1; $i <= $processCount; $i++) {
+    // process
+    $p = "P$i";
+    // Input process burst time
+    $burstTime = floatval(readline("$p = "));
+    // turnaround time for current process
+    $turnaroundTime += $burstTime;
 
     // add waiting time and turnaround time
-    $processHistories[] = [
-        'wt' => $waitingTime,
-        'tt' => $turnAroundTime,
+    $processHistories[$p] = [
+        'waiting_time' => $waitingTime,
+        'turnaround_time' => $turnaroundTime,
     ];
+
+    // waiting time for next process
+    $waitingTime += $burstTime;
 }
 
+// Waiting time information
 echo "\nWaiting Time:\n";
-$totalWt = 0;
+$totalWaitingTime = 0;
 foreach ($processHistories as $key => $processHistory) {
-    $totalWt += $processHistory['wt'];
-    echo "P" . $key + 1 . " = " . $processHistory['wt'] . "\n";
+    $totalWaitingTime += $processHistory['waiting_time'];
+    echo "$key = {$processHistory['waiting_time']}\n";
 }
 
-echo "A.W.T = " . $totalWt / $processCount . "\n";
+echo "Average Waiting Time = " . ($totalWaitingTime / $processCount) . "\n";
 
+// Turnaround time information
 echo "\nTurnaround Time:\n";
-$totalTt = 0;
+$totalTurnaroundTime = 0;
 foreach ($processHistories as $key => $processHistory) {
-    $totalTt += $processHistory['tt'];
-    echo "P" . $key + 1 . " = " . $processHistory['tt'] . "\n";
+    $totalTurnaroundTime += $processHistory['turnaround_time'];
+    echo "$key = {$processHistory['turnaround_time']}\n";
 }
 
-echo "A.T.T = " . $totalTt / $processCount . "\n";
+echo "Average Turnaround Time = " . ($totalTurnaroundTime / $processCount) . "\n";
