@@ -13,8 +13,9 @@ for ($i = 0; $i < $n; $i++) {
         }
     }
 
-    $minValue = array_splice($arr, $minIndex, 1)[0];
-    array_splice($arr, $i, 0, $minValue);
+    $temp = $arr[$minIndex];
+    $arr[$minIndex] = $arr[$i];
+    $arr[$i] = $temp;
 }
 
 echo "After sorted: " . implode(', ', $arr) . PHP_EOL;
