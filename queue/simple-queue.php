@@ -11,7 +11,7 @@ array_push($queue, 40);
 echo 'Queue: ' . implode(' ', $queue) . PHP_EOL;
 
 // Dequeue
-echo 'Dequeue: ' . array_pop($queue) . PHP_EOL;
+echo 'Dequeue: ' . array_shift($queue) . PHP_EOL;
 
 // Peek
 echo 'Peek: ' . (isset($queue[0]) ? $queue[0] : 'Queue is empty') . PHP_EOL;
