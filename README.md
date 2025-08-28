@@ -30,7 +30,8 @@ You may follow instructions, if you want to run code using docker.
    docker-compose run --rm dsa
    ```
 
-4. You may run a PHP file.
+4. You may run a PHP/Python file.
    ```sh
    php test.php
+   python3 test.py
    ```
