@@ -81,7 +81,7 @@ def inOrderTraversal(node):
 
 # Inserting nodes
 root = None
-letters = ['C', 'B', 'E', 'A', 'D', 'H', 'G', 'F']
+letters = [10, 8, 9, 5]
 for letter in letters:
     root = insert(root, letter)
 
