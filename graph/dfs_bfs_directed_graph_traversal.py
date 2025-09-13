@@ -5,11 +5,11 @@ class Graph:
         self.vertex_data = [''] * size
 
     def add_vertex_data(self, vertex, data):
-        if 0 <= vertex <= self.size:
+        if 0 <= vertex < self.size:
             self.vertex_data[vertex] = data
 
     def add_edge(self, u, v):
-        if 0 <= u <= self.size and 0 <= v <= self.size:
+        if 0 <= u < self.size and 0 <= v < self.size:
             self.adj_matrix[u][v] = 1
 
     def print_graph(self):
